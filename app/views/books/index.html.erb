@@ -1,0 +1,20 @@
+<table border='1'>
+	<tr>
+		<td>num</td>
+		<td>Title</td>
+		<td>Year</td>
+		<td>ver</td>
+		<td>editar</td>
+		<td>eliminar</td>
+	</tr>
+	<% @books.each do |b| %>
+	<tr>
+		<td><%=b.id%></td>
+		<td><%=b.title%></td>
+		<td><%=b.year%></td>
+		<td><%=link_to 'Ver',book_path(b)%></td>
+		<td><%=link_to 'editar',edit_book_path(b)%></td>
+		<td><%=link_to 'eliminar',book_path(b),:method=>'delete'%></td>
+	</tr>
+	<%end%>
+</table>

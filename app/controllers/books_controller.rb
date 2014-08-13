@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   end
   def update
   	if @book.update(book_params) 
-  		redirect_to @book
+  		redirect_to @book,:notice=>'el libro fue editado con exito'
   	else
   		render 'edit'
   	end
@@ -21,14 +21,14 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to book_path(@book)
+      redirect_to @book,notice:'El libro fue creado con exito'
     else
       render 'new'
     end
   end
   def destroy
     @book.destroy
-    redirect_to books_path
+    redirect_to books_path,:notice=>'El libro fue eliminado'
   end
   private
   def set_book

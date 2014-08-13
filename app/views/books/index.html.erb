@@ -14,7 +14,7 @@
 		<td><%=b.year%></td>
 		<td><%=link_to 'Ver',book_path(b)%></td>
 		<td><%=link_to 'editar',edit_book_path(b)%></td>
-		<td><%=link_to 'eliminar',book_path(b),:method=>'delete'%></td>
+		<td><%=link_to 'eliminar',book_path(b),:method=>:delete,:confirm=>'Estás seguro?'%></td>
 	</tr>
 	<%end%>
 </table>

@@ -1,0 +1,9 @@
+<%=form_for @book do |f|%>
+<%if @book.errors['title'].any?%><%=@book.errors['title'][0]%> <%end%>
+<%=f.label 'title'%>
+<%=f.text_field 'title'%>
+<%if @book.errors['year'].any?%><%=@book.errors['year'][0]%> <%end%>
+<%=f.label 'year'%>
+<%=f.number_field 'year'%>
+<%=f.submit 'enviar' %>
+<%end%>

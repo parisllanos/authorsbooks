@@ -1,0 +1,14 @@
+<%=form_for @author do |f|%>
+<%if @author.errors['name'].any?%>
+	<%=@author.errors['name'][0]%>
+<%end%>
+<%=f.label :name%>
+<%=f.text_field :name%>
+<br>
+<%if @author.errors['check'].any?%>
+	<%=@author.errors['check'][0]%>
+<%end%>
+<%=f.label :check %>
+<%=f.number_field :check%>
+<%=f.submit 'enviar' %>
+<%end%>

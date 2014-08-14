@@ -1,2 +1,13 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<%if flash[:notice]%>
+<%= flash[:notice]%>
+<%end%>
+<h1><%=@author.name%></h1>
+<%if @author.check==1%>
+	Author validado
+<%else%>
+    Author no validado
+<%end%>
+<br>
+<br>
+<%=link_to 'back',authors_path%>
+<%=link_to 'edit',edit_author_path(@author)%>

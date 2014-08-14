@@ -1,2 +1,4 @@
-<h1>Authors#edit</h1>
-<p>Find me in app/views/authors/edit.html.erb</p>
+<h1>Editando a <%=@author.name%></h1>
+<%=render 'form'%>
+<%=link_to 'listado',authors_path%>
+<%=link_to 'mostrar',@author%>

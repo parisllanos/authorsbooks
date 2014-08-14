@@ -8,8 +8,7 @@ class AuthorsController < ApplicationController
   def edit
   end
   def update
-    @author = Author.new(author_params)
-    if @author.save
+    if @author.update(author_params)
       redirect_to @author,:notice=>'Author editado con exito'
     else
       render  'edit'

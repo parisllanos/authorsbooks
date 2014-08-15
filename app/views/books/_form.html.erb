@@ -8,5 +8,8 @@
 <%if @book.errors['year'].any?%><%=@book.errors['year'][0]%> <%end%>
 <%=f.label 'year'%>
 <%=f.number_field 'year'%>
+<br>
+<%if @book.errors['author_id'].any?%><%=@book.errors['author_id'][0]%><%end%>
+<br>
 <%=f.submit 'enviar' %>
 <%end%>

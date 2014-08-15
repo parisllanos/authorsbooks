@@ -1,3 +1,4 @@
+<h1>Libros</h1>
 <%if flash[:notice] %>
 <%=flash[:notice]%>
 <%end%>
@@ -9,6 +10,7 @@
 		<td>ver</td>
 		<td>editar</td>
 		<td>eliminar</td>
+		<td>author</td>
 	</tr>
 	<% @books.each do |b| %>
 	<tr>

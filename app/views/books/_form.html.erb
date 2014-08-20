@@ -5,11 +5,14 @@
 <%if @book.errors['title'].any?%><%=@book.errors['title'][0]%> <%end%>
 <%=f.label 'title'%>
 <%=f.text_field 'title'%>
+<br>
 <%if @book.errors['year'].any?%><%=@book.errors['year'][0]%> <%end%>
 <%=f.label 'year'%>
 <%=f.number_field 'year'%>
 <br>
-<%if @book.errors['author_id'].any?%><%=@book.errors['author_id'][0]%><%end%>
+<%=f.fields_for :ab do |ff| %>
+	<%ff.select :author_id,options_from_collection_for_select(Author.all,:id,:name),{},{:multiple=>true}%>
+<%end%>
 <br>
 <%=f.submit 'enviar' %>
 <%end%>

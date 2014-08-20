@@ -18,12 +18,17 @@ class BooksController < ApplicationController
     @book = Book.new()
   end
   def create
-    @book = Book.new(book_params)
 
+    
+    @book = Book.new(book_params)
+    p @book
+    logger.debug params.to_yaml
+    render :text => 'console'
+    return false
     if @book.save
-      redirect_to @book,notice:'El libro fue creado con exito'
-    else
-      render 'new'
+       redirect_to @book,:notice=>'El libro fue creado con exito'
+    else  
+    render 'new'
     end
   end
   def destroy
@@ -35,6 +40,6 @@ class BooksController < ApplicationController
   	@book = Book.find_by_id(params[:id])
   end
   def book_params
-  	params.require(:book).permit(:title,:year,:author_id)
+  	params.require(:book).permit(:title,:year,:ab)
   end
 end

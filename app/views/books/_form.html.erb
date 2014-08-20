@@ -10,7 +10,7 @@
 <%=f.label 'year'%>
 <%=f.number_field 'year'%>
 <br>
-<%=f.fields_for :ab do |ff| %>
+<%=f.fields_for :authors do |ff| %>
 	<%ff.select :author_id,options_from_collection_for_select(Author.all,:id,:name),{},{:multiple=>true}%>
 <%end%>
 <br>

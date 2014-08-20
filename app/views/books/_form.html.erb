@@ -10,9 +10,8 @@
 <%=f.label 'year'%>
 <%=f.number_field 'year'%>
 <br>
-<%=f.fields_for :authors do |ff| %>
-	<%ff.select :author_id,options_from_collection_for_select(Author.all,:id,:name),{},{:multiple=>true}%>
-<%end%>
+
+<%= f.select :author_ids, Author.pluck(:name, :id) ,{},{:multiple=>true}%>
 <br>
 <%=f.submit 'enviar' %>
 <%end%>

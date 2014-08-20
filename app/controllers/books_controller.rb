@@ -25,8 +25,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    authors = Author.where(id: get_authors_ids)
-    @book.authors = authors
     if @book.save
       redirect_to @book,:notice=>'El libro fue creado con exito'
     else
@@ -50,6 +48,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title,:year,:authors)
+    params.require(:book).permit(:title,:year,author_ids: [])
   end
 end
